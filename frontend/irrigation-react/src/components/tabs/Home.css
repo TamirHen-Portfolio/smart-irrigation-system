@@ -1,0 +1,178 @@
+.MuiBox-root {
+  overflow: hidden !important;
+}
+
+.MuiInputBase-input#setting-field {
+  color: #659adc !important;
+  font-size: 15px !important;
+}
+
+.container-header {
+  font-weight: bold;
+  text-align: left;
+  font-size: 18px;
+  margin: 10px 0px 10px 0px;
+  padding-left: 20px;
+}
+
+.container {
+  height: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container-body {
+  display: flex;
+  width: 80%;
+}
+
+.left-side {
+  width: 65%;
+  background-color: white;
+}
+
+.right-side {
+  width: 35%;
+  background-color: white;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.status-list-wrapper {
+  display: flex;
+  flex: 4 1;
+}
+
+.divider {
+  background-color: transparent !important;
+  height: 8px !important;
+}
+
+#breathing-status {
+  width: 100px;
+  height: 100px;
+  border-radius: 50% !important;
+  border: 3px solid #cecbcb;
+  font-size: 16px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-error-message {
+  color: red;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  bottom: 80px;
+  margin: 0px 5px 0px 0px;
+}
+
+.watering-can-svg {
+  position: absolute;
+  transform: scale(-1, 1);
+}
+
+.sprout-tree-svg {
+  position: absolute;
+}
+
+.settings-button {
+  position: absolute !important;
+}
+
+.settings-svg {
+  transform: rotate(22.5deg);
+  transition: all 1s ease-in-out;
+}
+
+.roll {
+  transform: rotate(382.5deg);
+}
+
+.settings-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.before-slide {
+  top: 235px;
+  transition: all 1s !important;
+  border: 1px dashed #659adc;
+  visibility: hidden;
+}
+
+.slide {
+  visibility: visible;
+  transform: translateY(-235px);
+}
+
+.submit-settings {
+  position: absolute !important;
+  top: 0px;
+  right: -2px;
+  z-index: 1;
+  padding: 6px !important;
+}
+
+.save-error-message {
+  position: absolute;
+  top: -2px;
+  right: 38px;
+  z-index: 1;
+  color: red;
+  font-size: 12px;
+}
+
+@media (max-width: 720px) {
+  .left-side {
+    width: 75%;
+  }
+  .right-side {
+    width: 25%;
+  }
+}
+
+@media (max-width: 600px) {
+  .left-side {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .container-header {
+    padding-left: 0px;
+  }
+
+  .container-body {
+    width: 95%;
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    height: 340px;
+  }
+
+  .before-slide {
+    top: 265px;
+  }
+
+  .slide {
+    transform: translateY(-265px);
+  }
+}

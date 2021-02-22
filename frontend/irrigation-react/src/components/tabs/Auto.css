@@ -1,0 +1,58 @@
+ul {
+  list-style-type: none;
+}
+
+ul.week-list {
+  padding: 0;
+}
+
+.Submit-button-wrapper {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mock-label {
+  width: 100px;
+}
+
+.loader-wrapper {
+  margin-top: 25px;
+}
+
+.loader {
+  height: 50px !important;
+  width: 50px !important;
+}
+
+.submit-message-wrapper {
+  margin-top: 20px;
+}
+
+.submit-message {
+  font-weight: bold;
+}
+
+@media (max-width: 720px) {
+  .tab-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Submit-button-wrapper {
+    padding-top: 40px;
+  }
+
+  .divider-auto {
+    width: 80%;
+    margin-top: 15px !important;
+    margin-bottom: 31px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .divider-auto {
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+.cycle-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 280px;
+  height: 32px;
+}
+
+.round-text {
+  display: inline;
+  margin: 0px;
+}
+
+.time-pickers-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 280px;
+  margin: 8px auto;
+}
+
+.time-picker {
+  margin: 5px 0px;
+  width: 130px;
+}
+
+@media (max-width: 720px) {
+  .cycle-header {
+    width: 290px;
+  }
+  .time-picker {
+    margin-right: 3px !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .cycle-container {
+    margin-left: 5px;
+    padding-left: 5px;
+  }
+}
