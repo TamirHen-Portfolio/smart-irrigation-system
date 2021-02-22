@@ -3,7 +3,7 @@
 ##### Control your irrigation system from anywhere in the world.
 
 ## Description
-This system helps people control their irrigation system remotely. With "Smart Irrigation System" you can start or stop the irrigation, set automation for your irrigation times, and see the watering status at all times, from anywhere.
+This system is a tool for controlling your irrigation system remotely. With "Smart Irrigation System" you can start or stop the irrigation, set automation for your irrigation times, and see the watering status at all times, from anywhere.
 
 ## DEMO
 #### [Video](https://youtu.be/Rq7Wtwk9zFM)
