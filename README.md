@@ -17,3 +17,6 @@ This system is a tool for controlling your irrigation system remotely. With "Sma
 HTML, CSS, JS, React.js
 ### Backend
 Raspberry Pi, Python, Flask, Dataplicity, Firebase
+
+## Fully Responsive
+Desktop, tablet, mobile
