@@ -12,9 +12,8 @@ import numpy as np
 import schedule
 from gpiozero import MCP3008
 
-
 # out18 - water_on
-# out24 - water_close
+# out24 - water_off
 
 GPIO.setmode(GPIO.BCM)
 
@@ -22,6 +21,7 @@ app = FlaskAPI(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 state = False
+
 week = {
     "sunday" : False,
     "monday" : False,
@@ -37,8 +37,11 @@ week = {
     "thirdRoundStart": None,
     "thirdRoundEnd": None,
 }
+
 week_day_int = [False, False, False, False, False, False, False]
+
 is_irrigate_by_moisture = False
+
 
 @app.route('/irrigate_by_seconds/<int:seconds>', methods=["POST"])
 def irrigate_by_seconds(seconds):
@@ -54,6 +57,7 @@ def irrigate_by_minutes(minutes):
     new_thread.start()
     return { }
 
+
 @app.route('/start_irrigate', methods=["POST"])
 def start_irrigate():
     water_on()
@@ -64,11 +68,9 @@ def stop_irrigate():
     water_off()
     return { }
 
-
 @app.route('/get_week', methods=["GET"])
 def get_week():
     return jsonify(week)
-
 
 
 def irrigate_by_seconds_thread(seconds):
@@ -76,12 +78,11 @@ def irrigate_by_seconds_thread(seconds):
     time.sleep(seconds)
     water_off()
 
-
+    
 @app.route('/get_state', methods=["GET"])
 def get_state():
     global state
     return jsonify(state)
-
 
 
 @app.route('/update_week', methods=["POST"])
@@ -124,7 +125,7 @@ def check_irrigation_every_day():
         new_thread3.setName("Round-3 " + now)
         new_thread3.start()
 
-
+        
 def check_round_every_day_thread(iround):
     if(iround==1):
         schedule.every().day.at(week["firstRoundStart"]).do(schedule_irrigation, iround).tag("Round-1")
@@ -142,7 +143,7 @@ def check_round_every_day_thread(iround):
             schedule.run_pending()
             time.sleep(1)
 
-
+            
 def schedule_irrigation(iround):
     if(week_day_int[datetime.today().weekday()] == True):  #check if needs to irrigate today.
         if(iround==1):
@@ -163,6 +164,7 @@ def schedule_irrigation(iround):
         time.sleep(result)
         water_off()
 
+        
 def convert_to_seconds_in_integer(start_time, end_time):
     time_to_irrigate = datetime.combine(date.today(), end_time) - datetime.combine(date.today(), start_time)
     (h, m, s) = str(time_to_irrigate).split(':')
@@ -191,7 +193,6 @@ def irrigate_by_moisture():
     return {}
 
 
-
 def irrigate_by_moisture_new_thread(irrigate_level_bars):
     global is_irrigate_by_moisture
     global state
@@ -207,13 +208,13 @@ def irrigate_by_moisture_new_thread(irrigate_level_bars):
         stop_irrigate()
         time.sleep(60*60*8)
 
-
+        
 @app.route('/stop_irrigate_by_moisture', methods=["POST"])
 def stop_irrigate_by_moisture():
     global is_irrigate_by_moisture
     is_irrigate_by_moisture = False
 
-
+    
 def water_on():
     global state
     GPIO.setup(18, GPIO.OUT)
@@ -221,6 +222,7 @@ def water_on():
     time.sleep(2)
     GPIO.cleanup(18)
 
+    
 def water_off():
     global state
     GPIO.setup(24, GPIO.OUT)
@@ -228,6 +230,6 @@ def water_off():
     time.sleep(2)
     GPIO.cleanup(24)
 
-
+    
 if __name__ == "__main__":
     app.run()
